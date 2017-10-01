@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #383838;
+  outline: 0;
+  outline: none !important; }
+
+button {
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer; }
+
+button:focus {
+  outline: none; }
+
+.header {
+  background-color: #fbaa6b;
+  margin: 0 0 20px 0;
+  padding: 10px; }
+  .header .heading {
+    color: #fff;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 20px; }
+
+.subheader {
+  text-align: center; }
+  .subheader .btn {
+    margin: 5px;
+    width: 120px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    color: #fdd4b5;
+    background-color: #fff;
+    border: 3px solid #fdd4b5; }
+  .subheader .btn:hover, .subheader .btn:active {
+    color: #fbaa6b;
+    border: 3px solid #FCC69C; }
+  .subheader .active {
+    color: #fff;
+    background-color: #FCC69C;
+    border: none; }
+  .subheader .active:hover, .subheader .active:active {
+    color: #fff;
+    background-color: #fbaa6b;
+    border: none; }
+
+.timer .timerClock {
+  margin: 100px 0;
+  font-size: 90px;
+  text-align: center; }
+
+.controlBar {
+  background-color: #FCC69C;
+  margin: 0 10px 20px 10px;
+  padding: 17px;
+  text-align: center; }
+  .controlBar .btn-round {
+    color: #FCC69C;
+    background-color: #fff;
+    margin: 0 15px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 25px; }

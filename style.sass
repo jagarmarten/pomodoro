@@ -1,0 +1,84 @@
+//variables
+$defColor: #FCC69C
+//$defColor: #3498db
+
+//imports
+
+//mixins
+
+//styles
+body
+    margin: 0
+    padding: 0
+    font-family: 'Lato', sans-serif
+    font-size: 16px
+    color: #383838
+    outline: 0
+    outline: none !important
+
+button
+    font-size: 16px
+    text-align: center
+    cursor: pointer
+
+button:focus
+    outline: none
+
+.header
+    background-color: darken($defColor, 10)
+    margin: 0 0 20px 0
+    padding: 10px
+    .heading
+        color: #fff
+        margin: 10px 0
+        font-weight: bold
+        font-size: 20px
+        
+
+.subheader
+    text-align: center
+
+    .btn
+        margin: 5px
+        width: 120px
+        height: 48px
+        border: none
+        border-radius: 10px
+        color: lighten($defColor, 5)
+        background-color: #fff
+        border: 3px solid lighten($defColor, 5)
+
+    .btn:hover, .btn:active
+        color: darken($defColor, 10)
+        border: 3px solid $defColor
+
+    .active
+        color: #fff
+        background-color: $defColor
+        border: none
+    
+    .active:hover, .active:active
+        color: #fff
+        background-color: darken($defColor, 10)
+        border: none
+
+.timer
+    .timerClock
+        margin: 100px 0
+        font-size: 90px
+        text-align: center
+
+.controlBar
+    background-color: $defColor
+    margin: 0 10px 20px 10px
+    padding: 17px
+    text-align: center
+
+    .btn-round
+        color: $defColor
+        background-color: #fff
+        margin: 0 15px
+        width: 50px
+        height: 50px
+        border: none
+        border-radius: 25px

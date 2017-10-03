@@ -54,7 +54,7 @@ button:focus
 
     .active
         color: #fff
-        background-color: $defColor
+        background-color: darken($defColor, 10)
         border: none
     
     .active:hover, .active:active
@@ -82,3 +82,18 @@ button:focus
         height: 50px
         border: none
         border-radius: 25px
+
+        svg
+            position: relative
+            top: 2px
+            width: 22px
+            height: 22px
+            fill: $defColor
+        
+        svg:hover
+            fill: darken($defColor, 10)
+
+    .play
+        svg
+            position: relative
+            left: 2px

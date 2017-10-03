@@ -72,10 +72,19 @@ button:focus {
       width: 22px;
       height: 22px;
       fill: #FCC69C; }
-    .controlBar .btn-round svg:hover {
-      fill: #fbaa6b; }
+  .controlBar .btn-round:hover svg {
+    fill: #fbaa6b; }
   .controlBar .play svg {
     position: relative;
     left: 2px; }
+
+@media (min-width: 620px) {
+  body .controlBar {
+    margin: 0 auto;
+    width: 550px; } }
+@media (min-width: 1200px) {
+  body .controlBar {
+    margin: 0 auto;
+    width: 400px; } }
 
 /*# sourceMappingURL=style.css.map */

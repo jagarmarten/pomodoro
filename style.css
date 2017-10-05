@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   color: #383838;
   outline: 0;
@@ -68,18 +68,21 @@ button:focus {
     border-radius: 25px; }
     .controlBar .btn-round svg {
       margin-top: 3px;
-      width: 22px !important;
-      height: 22px !important;
+      width: 22px;
+      height: 22px;
       fill: #FCC69C; }
   .controlBar .btn-round:hover svg, .controlBar .btn-round:focus svg {
     fill: #fbaa6b; }
+  .controlBar .play svg {
+    margin-left: 4px; }
 
 @media (min-width: 620px) {
   body .controlBar {
     margin: 0 auto;
     width: 550px; } }
-
 @media (min-width: 1200px) {
   body .controlBar {
     margin: 0 auto;
     width: 400px; } }
+
+/*# sourceMappingURL=style.css.map */

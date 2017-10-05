@@ -5,7 +5,8 @@
 */
 
 var minutes = 25;   //set time in minutes
-var count = minutes * 60; //count multiplies minutes to get seconds
+
+var count = minutes * 60; //multiply minutes by 60 to get seconds
 
 var counter=setInterval(timer, 1000); //counter will update every 1 second (1000 miliseconds)
 

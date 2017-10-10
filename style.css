@@ -71,7 +71,7 @@ button:focus {
       width: 22px;
       height: 22px;
       fill: #FCC69C; }
-  .controlBar .btn-round:hover svg, .controlBar .btn-round:focus svg {
+  .controlBar .btn-round:hover svg, .controlBar .btn-round:focus svg, .controlBar .btn:active svg, .controlBar .active svg {
     fill: #fbaa6b; }
   .controlBar .play svg {
     margin-left: 4px; }

@@ -50,8 +50,7 @@ $(document).ready(function() {
             reset.removeClass("active"); //remove class .active
         }
         
-        //----------------
-        //timer
+       //timer
         //play.prop('disabled', true);
         if (count == 0) {
             //if count is 0, stop the counter

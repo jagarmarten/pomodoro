@@ -39,11 +39,11 @@ button:focus {
   .subheader .btn:hover, .subheader .btn:active, .subheader .btn:focus {
     color: #fbaa6b;
     border: 3px solid #FCC69C; }
-  .subheader .active {
+  .subheader .activeID {
     color: #fff;
     background-color: #fbaa6b;
     border: none; }
-  .subheader .active:hover, .subheader .active:active, .subheader .active:focus {
+  .subheader .activeID:hover, .subheader .activeID:active, .subheader .activeID:focus {
     color: #fff;
     background-color: #fbaa6b;
     border: none; }

@@ -1,13 +1,20 @@
+/*
+next do to: 1. add a sound at the end of the timer - it should be peaceful and easy
+            2. repair the play button - when the play button is clicked it will add 1 second every time
+*/
+
 //start javascript only after the DOM's loaded
 $(document).ready(function() {
 
-    var minutes = 25;   //set time in minutes
+    var minutes = 25; //default value for time is 25 minutes
+
     var count = minutes * 60; //multiply minutes by 60 to get seconds
-    var countReset = count;
     
     var counter; //counter variable I'm using later
     var do_something = false;
-    
+
+    var pomodoroTime = $("#pomodoro");
+    var breakTime =  $("#break");
     var play = $("#play"); //play button
     var pause = $("#pause"); //pause button
     var reset = $("#reset"); //reset button
@@ -24,12 +31,10 @@ $(document).ready(function() {
     
         //print out to HTML document - minutes:seconds
         $("#timer").text(minutes + ":" + seconds);
-        //$("#timer").innerHTML = minutes + ":" +seconds;
     }
 
-    //print out the time left to <p id="timer"></p>
-    $("#timer").text(printOut());
-
+    $("#timer").text(printOut()); //print out the time left to <p id="timer"></p>
+    
     //when play button is clicked, do this
     play.click( function timer() {
     
@@ -45,6 +50,9 @@ $(document).ready(function() {
             reset.removeClass("active"); //remove class .active
         }
         
+        //----------------
+        //timer
+        //play.prop('disabled', true);
         if (count == 0) {
             //if count is 0, stop the counter
             clearTimeout(counter); //clear the timeout
@@ -55,15 +63,13 @@ $(document).ready(function() {
                 count--; //decrement by 1
                 counter = setTimeout(timer, 1000); //set timeout to 1 second
                 console.log("continue"); //console.log the event
+
             } else {
                 click_handler();
             }
         }
+        //play.prop('disabled', false);
     });
-    
-    function click_handler() {
-        do_something = true; //this checks if the function is already running, if true you won'r be able to click the button play twice
-    }
     
     //when pause button is clicked, do this
     pause.click( function pauseTimer() {
@@ -79,6 +85,19 @@ $(document).ready(function() {
         clearTimeout(counter); //pause the timer by clearing the Timeout
         console.log("pause"); //console.log the event
     });
+
+    //timer reset function
+    //when you want to reset the break timer, it would reset to 25 minutes, but we wanted it to reset to 5 minutes again
+    //this function checks if pomodoro button or break time hasClass activeID, if yes then it prints out the correct reset value for the button
+    function timerReset() {
+        if(pomodoroTime.hasClass("activeID") == true) {
+            count = 25 * 60;
+        }
+
+        if(breakTime.hasClass("activeID") == true) {
+            count = 5 * 60;
+        }
+    }
     
     //when reset button is clicked, do this
     reset.click( function resetTimer() {
@@ -93,8 +112,45 @@ $(document).ready(function() {
 
         //reset the timer by clearing the timeout, then changing the number value to the default value and printing out the default value
         clearTimeout(counter); //clear timeout
-        count = countReset;
+        timerReset();
         printOut(); 
         console.log("reset"); //console.log the event
+    });
+
+    //function to remove classes
+    function removeClasses() {
+        play.removeClass("active"); //remove class active from play button
+        pause.removeClass("active"); //remove class active from pause button
+        reset.removeClass("active"); //remove class active from reset button
+    }
+
+    //if pomodoro button is clicked then do this
+    pomodoroTime.click(function() {
+
+        //if break button has class activeID then do this code
+        if(breakTime.hasClass("activeID") == true) {
+            clearTimeout(counter); //stop the timeout
+            count = 25 * 60; //set the new count value
+            printOut(); //print out the new count value
+
+            breakTime.removeClass("activeID"); //remove class activeID from break button
+            pomodoroTime.addClass("activeID"); //add class activeID to pomodoro button
+            removeClasses();
+        }
+    });
+
+    //if break button is clicked then do this
+    breakTime.click(function() {
+
+        //if pomodoro button has class activeID then do this code
+        if(pomodoroTime.hasClass("activeID") == true) {
+            clearTimeout(counter); //stop the timeout
+            count = 5 * 60; //set the new count value
+            printOut(); //print out the new count value
+
+            pomodoroTime.removeClass("activeID"); //remove class activeID from pomodoro button
+            breakTime.addClass("activeID"); //add class activeID to break button
+            removeClasses();
+        }
     });
 });

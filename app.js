@@ -1,6 +1,5 @@
 /*
 next do to: 1. add a sound at the end of the timer - it should be peaceful and easy
-            2. repair the play button - when the play button is clicked it will add 1 second every time
 */
 
 //start javascript only after the DOM's loaded
@@ -18,6 +17,33 @@ $(document).ready(function() {
     var play = $("#play"); //play button
     var pause = $("#pause"); //pause button
     var reset = $("#reset"); //reset button
+
+    $("#audio").trigger('load');
+
+    //function that takes 3 arguments - name of button1, button2 and class name we want to remove
+    //we're using this function for styling reasons
+    function classRemover(button1, button2, className) {
+        //if button1 has className and button2 has className too then continue
+        if(button1.hasClass(className) || button2.hasClass(className)) {
+            //remove className from button1 and button2
+            button1.removeClass(className);
+            button2.removeClass(className);
+        }
+    }
+
+    //audio function takes 1 argument
+    function audio(task) {
+        //if task == play
+        if(task == "play") {
+            $("#audio").trigger("play"); //play audio
+        }
+
+        //if task == stop
+        if(task == "stop") {
+            $("#audio").trigger("pause"); //pause the audio
+            $("#audio").prop("currentTime", 0); //set the time to 0 (reset it)
+        }
+    }
     
     function printOut() {
         var minutes = Math.floor(count / 60); //get minutes left
@@ -37,6 +63,7 @@ $(document).ready(function() {
     
     //when play button is clicked, do this
     play.click( function timer() {
+        play.prop("disabled", true); //we're disabling the button, to prevent users from clicking it twice
     
         clearTimeout(counter); //clear the timeout first
         printOut(); //calling for printOut(); function
@@ -44,17 +71,16 @@ $(document).ready(function() {
         //.active class adds some fancy styles to the button
         play.addClass("active"); //add class active to play button
         
-        //remove class .active from other elements if they have it
-        if(pause.hasClass("active") || reset.hasClass("active")) {
-            pause.removeClass("active"); //remove class .active
-            reset.removeClass("active"); //remove class .active
-        }
-        
+        classRemover(pause, reset, "active"); //remove class active from pause and reset buttons
+
        //timer
         //play.prop('disabled', true);
         if (count == 0) {
             //if count is 0, stop the counter
             clearTimeout(counter); //clear the timeout
+
+            audio("play"); //play audio
+
             console.log("stop"); //console.log the event
         } else {
             //else - continue the timer
@@ -74,14 +100,13 @@ $(document).ready(function() {
     pause.click( function pauseTimer() {
         //.active class adds some fancy styles to the button
         pause.addClass("active");  //add class active to pause button
-        
-        //remove class .active from other elements if they have it
-        if(play.hasClass("active") || reset.hasClass("active")) {
-            play.removeClass("active"); //remove class .active
-            reset.removeClass("active"); //remove class .active
-        }
+        play.prop("disabled", false);
+
+        classRemover(play, reset, "active"); //remove class active from play and reset buttons
     
         clearTimeout(counter); //pause the timer by clearing the Timeout
+
+        audio("stop"); //stop audio
         console.log("pause"); //console.log the event
     });
 
@@ -102,17 +127,16 @@ $(document).ready(function() {
     reset.click( function resetTimer() {
         //.active class adds some fancy styles to the button
         reset.addClass("active");  //add class active to reset button
+        play.prop("disabled", false);
 
-        //remove class .active from other elements if they have it
-        if(play.hasClass("active") || pause.hasClass("active")) {
-            play.removeClass("active"); //remove class .active
-            pause.removeClass("active"); //remove class .active
-        }
+        classRemover(play, pause, "active"); //remove class active from play and pause buttons
 
         //reset the timer by clearing the timeout, then changing the number value to the default value and printing out the default value
         clearTimeout(counter); //clear timeout
-        timerReset();
-        printOut(); 
+        timerReset(); //timer reset value
+        printOut(); //printout the time left
+
+        audio("stop"); //stop audio
         console.log("reset"); //console.log the event
     });
 
@@ -134,7 +158,9 @@ $(document).ready(function() {
 
             breakTime.removeClass("activeID"); //remove class activeID from break button
             pomodoroTime.addClass("activeID"); //add class activeID to pomodoro button
-            removeClasses();
+            removeClasses(); //remove class active from play, pause and reset buttons
+
+            audio("stop"); //stop audio
         }
     });
 
@@ -149,7 +175,9 @@ $(document).ready(function() {
 
             pomodoroTime.removeClass("activeID"); //remove class activeID from pomodoro button
             breakTime.addClass("activeID"); //add class activeID to break button
-            removeClasses();
+            removeClasses(); //remove class active from play, pause and reset buttons
+
+            audio("stop"); //stop audio
         }
     });
 });

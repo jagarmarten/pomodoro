@@ -17,13 +17,14 @@ button:focus {
 
 .header {
   background-color: #fbaa6b;
-  margin: 0 0 20px 0;
-  padding: 10px; }
+  margin: 0 0 20px 0; }
   .header .heading {
-    color: #fff;
-    margin: 10px 0;
-    font-weight: bold;
-    font-size: 20px; }
+    padding: 10px; }
+    .header .heading p {
+      color: #fff;
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 20px; }
 
 .subheader {
   text-align: center; }
@@ -47,7 +48,7 @@ button:focus {
     color: #fff;
     background-color: #fbaa6b;
     border: none; }
-    
+
 .timer #timer {
   margin: 100px 0;
   font-size: 90px;
@@ -77,12 +78,22 @@ button:focus {
     margin-left: 4px; }
 
 @media (min-width: 620px) {
+  body .header .heading {
+    margin: 0 auto;
+    width: 550px; }
+  body .timer #timer {
+    margin: 140px 0; }
   body .controlBar {
     margin: 0 auto;
     width: 550px; } }
 @media (min-width: 1200px) {
+  body .header .heading {
+    margin: 0 auto;
+    width: 600px; }
+  body .timer #timer {
+    margin: 200px 0; }
   body .controlBar {
     margin: 0 auto;
-    width: 400px; } }
+    width: 600px; } }
 
 /*# sourceMappingURL=style.css.map */

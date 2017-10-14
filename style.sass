@@ -28,13 +28,14 @@ button:focus
 .header
     background-color: darken($defColor, 10)
     margin: 0 0 20px 0
-    padding: 10px
     .heading
-        color: #fff
-        margin: 10px 0
-        font-weight: bold
-        font-size: 20px
-        
+        padding: 10px
+        p
+            color: #fff
+            margin: 10px 0
+            font-weight: bold
+            font-size: 20px
+            
 
 .subheader
     text-align: center
@@ -100,12 +101,29 @@ button:focus
 
 @media (min-width: 620px) 
     body
+        .header
+            .heading
+                margin: 0 auto
+                width: 550px
+        .timer
+            #timer
+                margin: 140px 0
+
         .controlBar
             margin: 0 auto
             width: 550px
 
 @media (min-width: 1200px)
     body
+        .header
+            .heading
+                margin: 0 auto
+                width: 600px
+
+        .timer
+            #timer
+                margin: 200px 0
+        
         .controlBar
             margin: 0 auto
-            width: 400px
+            width: 600px

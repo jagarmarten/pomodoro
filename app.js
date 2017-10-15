@@ -155,6 +155,7 @@ $(document).ready(function() {
             clearTimeout(counter); //stop the timeout
             count = 25 * 60; //set the new count value
             printOut(); //print out the new count value
+            play.prop("disabled", false);
 
             breakTime.removeClass("activeID"); //remove class activeID from break button
             pomodoroTime.addClass("activeID"); //add class activeID to pomodoro button
@@ -172,6 +173,7 @@ $(document).ready(function() {
             clearTimeout(counter); //stop the timeout
             count = 5 * 60; //set the new count value
             printOut(); //print out the new count value
+            play.prop("disabled", false);
 
             pomodoroTime.removeClass("activeID"); //remove class activeID from pomodoro button
             breakTime.addClass("activeID"); //add class activeID to break button

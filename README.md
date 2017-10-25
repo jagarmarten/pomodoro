@@ -1,5 +1,6 @@
 # Pomodoro
-This is a pomodoro technique app. I'd like to make a progressive web app from this project.
+Pomodoro technique app.
+I created this because I wanted to put in practice the things I learned. I mostly use it when I'm studying.
+I really enjoyed the process of development of this app.
 
-With PWA, I can send push notifications (when the timer ends) or other types of messages.
-It's a simple app in which I want to use all the skills I've learned till today.
+url: jagarmarten.github.io/pomodoro
